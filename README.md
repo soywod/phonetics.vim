@@ -2,6 +2,10 @@
 
 A vim plugin to improve your English phonetics. 
 
+<p align="center">
+<img  width="473" src="https://user-images.githubusercontent.com/10437171/40174894-ba44bca2-59d6-11e8-9800-e5d825c1b58c.gif"></img>
+</p>
+
 ## Introduction
 
 Vim Phonetics is a vim plugin that gives you English phonetic transcriptions of focused words.
@@ -35,4 +39,3 @@ let g:phonetics_default_accent = 'american' | 'british'
 ```
 
 Default value: `british`
-
