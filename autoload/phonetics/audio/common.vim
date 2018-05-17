@@ -1,12 +1,11 @@
 fun! phonetics#audio#common#EchoAndPlay(accent)
-  let l:word = phonetics#core#GetWord()
-  let l:accent = phonetics#core#GetAccent(a:accent)
-
   try
-    let [l:transcription, l:audio_url] = phonetics#core#Scrap(l:accent, 'audio', l:word)
+    let [l:transcription, l:audio_url] = phonetics#core#Scrap(a:accent, 'audio')
     call system('mpv ' . l:audio_url)
   cat 'phonetics-not-found'
-    exe 'echom "[' . toupper(l:accent) . '] Phonetics of \"' . l:word . '\" not found."'
+    call phonetics#core#ErrorMsg('Phonetics not found.')
+  cat 'invalid-accent'
+    call phonetics#core#ErrorMsg('Invalid accent.')
   endt
 endf
 

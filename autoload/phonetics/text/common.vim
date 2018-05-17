@@ -1,11 +1,10 @@
 fun! phonetics#text#common#Echo(accent)
-  let l:word = phonetics#core#GetWord()
-  let l:accent = phonetics#core#GetAccent(a:accent)
-
   try
-    call phonetics#core#Scrap(l:accent, 'text', l:word)
+    call phonetics#core#Scrap(a:accent, 'text')
   cat 'phonetics-not-found'
-    exe 'echom "[' . toupper(l:accent) . '] Phonetics of \"' . l:word . '\" not found."'
+    call phonetics#core#ErrorMsg('Phonetics not found.')
+  cat 'invalid-accent'
+    call phonetics#core#ErrorMsg('Invalid accent.')
   endt
 endf
 

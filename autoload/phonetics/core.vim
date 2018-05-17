@@ -4,22 +4,30 @@ fun! phonetics#core#GetHTML(word)
 endf
 
 fun! phonetics#core#GetWord()
-  retu expand('<cword>')
+  retu tolower(expand('<cword>'))
 endf
 
 fun! phonetics#core#GetAccent(accent)
-  if a:accent != '' | retu a:accent | en
-  retu get(g:, 'phonetics_default_accent', 'british')
+  if a:accent == '' | retu get(g:, 'phonetics_default_accent', 'british') | en
+  if a:accent != 'british' && a:accent != 'american' | th 'invalid-accent' | en
+  retu a:accent
 endf
 
-fun! phonetics#core#Scrap(accent, type, word)
-  let l:word = tolower(a:word)
-  exe 'let l:response = phonetics#' . a:type . '#' . a:accent . '#Scrap(l:word)'
+fun! phonetics#core#Scrap(accent, type)
+  let l:accent = phonetics#core#GetAccent(a:accent)
+  let l:word = phonetics#core#GetWord()
+  exe 'let l:response = phonetics#' . a:type . '#' . l:accent . '#Scrap(l:word)'
 
   if empty(l:response) | th 'phonetics-not-found' | en
 
-  exe 'echom "[' . toupper(a:accent) . '] Phonetics of \"' . l:word . '\" => ' . l:response[0] . '"'
+  exe 'echom "[' . toupper(l:accent) . '] Phonetics of \"' . l:word . '\" => ' . l:response[0] . '"'
 
   retu l:response
+endf
+
+fun! phonetics#core#ErrorMsg(message)
+  echohl ErrorMsg
+  echo a:message
+  echohl None
 endf
 
