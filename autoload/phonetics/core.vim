@@ -22,7 +22,7 @@ function! phonetics#core#Scrap(accent, type)
   if empty(l:response) | throw 'phonetics-not-found' | endif
 
   let l:phonetics = substitute(l:response[0], '<\/\?span.\{-}>', '', 'g')
-  execute 'echom "[' . toupper(l:accent) . '] Phonetics of \"' . l:word . '\" => ' . l:phonetics . '"'
+  execute 'echom "[' . toupper(l:accent) . '] ' . l:word . ' = ' . l:phonetics . '"'
 
   return l:response
 endfunction
