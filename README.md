@@ -18,7 +18,8 @@ The phonetics (transcription and audio) is scraped from [Oxford Learner's Dictio
 
 ## Prerequisites
 
-Vim Phonetics uses [mpv](https://mpv.io/) to play phonetics. It should be installed first. Other players will be integrated in the future.
+ - A network retriever ([curl](https://curl.haxx.se/))
+ - A media player ([mpv](https://mpv.io/))
 
 ## Installation
 
