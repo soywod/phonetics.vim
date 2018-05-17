@@ -1,7 +1,7 @@
 fun! phonetics#core#GetHTML(word)
   let l:url = 'https://www.oxfordlearnersdictionaries.com/definition/english/' . a:word . '_1?q=' . a:word
   let l:cmd = 'curl -L ' . shellescape(l:url)
-  return system(l:cmd)
+  retu system(l:cmd)
 endf
 
 fun! phonetics#core#GetWord()
