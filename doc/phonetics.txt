@@ -1,0 +1,52 @@
+*phonetics.txt*	A Vim plugin for checking and listening to phonetics.
+==============================================================================
+CONTENTS                                                           *phonetics*
+
+    1. Install ......................................... |phonetics-install|
+    2. Usage ............................................. |phonetics-usage|
+    3. Configuration ............................. |phonetics-configuration|
+
+==============================================================================
+1. Install                                                 *phonetics-install*
+
+Use your favorite plugin manager.
+
+- with {vim-plug}{1}
+  1. Add `Plug 'soywod/vim-phonetics'` to .vimrc
+  2. Run `:PlugInstall`
+
+To play sound, you will need to install {mpv}{2}.
+
+                                      {1} https://github.com/junegunn/vim-plug
+                                                           {2} https://mpv.io/
+
+==============================================================================
+2. Usage                                                     *phonetics-usage*
+
+Get phonetic transcription of the current word:
+>
+  :Phonetics
+<
+Get phonetic translation of the current word and play the sound:
+>
+  :PhoneticsPlay
+<
+Get phonetic transcription of the current word for British accent:
+>
+  :Phonetics british
+<
+Get phonetic translation of the current word and play the sound for American
+accent:
+>
+  :PhoneticsPlay american
+<
+==============================================================================
+3. Configuration                                     *phonetics-configuration*
+
+To set a default accent:
+>
+  let g:phonetics_default_accent = 'american' | 'british'
+>
+Default value: `british`
+
+vim:tw=78:ts=8:ft=help:norl:
