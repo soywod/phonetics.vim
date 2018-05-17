@@ -14,9 +14,9 @@ fun! phonetics#text#common#Scrap(regex, word)
 
   try
     let [l:match, l:transcription; l:rest] = matchlist(l:html, a:regex)
-    return [l:transcription]
-  catch
-    return []
+    retu [l:transcription]
+  cat
+    retu []
   endt
 endf
 

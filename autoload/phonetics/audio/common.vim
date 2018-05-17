@@ -15,9 +15,9 @@ fun! phonetics#audio#common#Scrap(regex, word)
 
   try
     let [l:match, l:transcription, l:audio_url; l:rest] = matchlist(l:html, a:regex)
-    return [l:transcription, l:audio_url]
-  catch
-    return []
+    retu [l:transcription, l:audio_url]
+  cat
+    retu []
   endt
 endf
 

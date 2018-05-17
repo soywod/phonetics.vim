@@ -1,6 +1,4 @@
-if exists('g:loaded_phonetics_plugin')
-  finish
-endif
+if exists('g:loaded_phonetics_plugin') | fini | en
 let g:loaded_phonetics_plugin = 1
 
 com! -nargs=? Phonetics call phonetics#text#common#Echo(<q-args>)
