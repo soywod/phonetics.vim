@@ -11,8 +11,12 @@ endfunction
 
 function! phonetics#audio#common#Scrap(regex, word)
   let l:html = phonetics#core#GetHTML(a:word)
-  let [l:match, l:transcription, l:audio_url; l:rest] = matchlist(l:html, a:regex)	
 
-  return [l:transcription, l:audio_url]
+  try
+    let [l:match, l:transcription, l:audio_url; l:rest] = matchlist(l:html, a:regex)	
+    return [l:transcription, l:audio_url]
+  catch
+    return []
+  endtry
 endfunction
 
