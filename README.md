@@ -3,7 +3,7 @@
 A vim plugin to improve your English phonetics. 
 
 <p align="center">
-<img  width="473" src="https://user-images.githubusercontent.com/10437171/40174894-ba44bca2-59d6-11e8-9800-e5d825c1b58c.gif"></img>
+<img  width="615" src="https://user-images.githubusercontent.com/10437171/40181075-890f753e-59e8-11e8-801c-7f8d64514c91.gif"></img>
 </p>
 
 ## Introduction
