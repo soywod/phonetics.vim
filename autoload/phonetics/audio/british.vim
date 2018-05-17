@@ -1,5 +1,5 @@
-fun! phonetics#audio#british#Scrap(word)
+function! phonetics#audio#british#Scrap(word)
   let l:regex = 'BrE<\/span><span class="separator">\/<\/span><span class="wrap">\/<\/span>\(.\{-}\)<.\{-}mp3="\(.\{-}\)"'
-  retu phonetics#audio#common#Scrap(l:regex, a:word)
-endf
+  return phonetics#audio#common#Scrap(l:regex, a:word)
+endfunction
 

@@ -1,21 +1,21 @@
-fun! phonetics#text#common#Echo(accent)
+function! phonetics#text#common#Echo(accent)
   try
     call phonetics#core#Scrap(a:accent, 'text')
-  cat 'phonetics-not-found'
+  catch 'phonetics-not-found'
     call phonetics#core#ErrorMsg('Phonetics not found.')
-  cat 'invalid-accent'
+  catch 'invalid-accent'
     call phonetics#core#ErrorMsg('Invalid accent.')
-  endt
-endf
+  endtry
+endfunction
 
-fun! phonetics#text#common#Scrap(regex, word)
+function! phonetics#text#common#Scrap(regex, word)
   let l:html = phonetics#core#GetHTML(a:word)
 
   try
     let [l:match, l:transcription; l:rest] = matchlist(l:html, a:regex)
-    retu [l:transcription]
-  cat
-    retu []
-  endt
-endf
+    return [l:transcription]
+  catch
+    return []
+  endtry
+endfunction
 
