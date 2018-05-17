@@ -1,5 +1,5 @@
 function! phonetics#audio#american#Scrap(word)
-  let l:regex = 'NAmE<\/span><span class="separator">\/<\/span><span class="wrap">\/<\/span>\(.\{-}\)<.\{-}mp3="\(.\{-}\)"'
+  let l:regex = 'NAmE.\{-}separator">\/<\/span>\(.\{-}\)<span class="separator.\{-}mp3="\(.\{-}\)"'
   return phonetics#audio#common#Scrap(l:regex, a:word)
 endfunction
 
