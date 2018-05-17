@@ -11,12 +11,6 @@ endf
 
 fun! phonetics#audio#common#Scrap(regex, word)
   let l:html = phonetics#core#GetHTML(a:word)
-
-  try
-    let [l:match, l:transcription, l:audio_url; l:rest] = matchlist(l:html, a:regex)
-    retu [l:transcription, l:audio_url]
-  cat
-    retu []
-  endt
+  call system('mpv ' . shellescape(l:audio_url))
 endf
 
