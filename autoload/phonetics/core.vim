@@ -16,8 +16,10 @@ fun! phonetics#core#GetAccent(accent)
 endf
 
 fun! phonetics#core#Scrap(accent, type, word)
-  exe 'let l:response = phonetics#' . a:type . '#' . a:accent . '#Scrap(a:word)'
-  exe 'echom "[' . toupper(a:accent) . '] Phonetics of \"' . a:word . '\" => ' . l:response[0] . '"'
+  let l:word = tolower(a:word)
+
+  exe 'let l:response = phonetics#' . a:type . '#' . a:accent . '#Scrap(l:word)'
+  exe 'echom "[' . toupper(a:accent) . '] Phonetics of \"' . l:word . '\" => ' . l:response[0] . '"'
 
   return l:response
 endf
