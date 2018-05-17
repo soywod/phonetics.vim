@@ -1,6 +1,7 @@
 fun! phonetics#core#GetHTML(word)
-  let l:url = 'curl -L https://www.oxfordlearnersdictionaries.com/definition/english/' . a:word . '_1?q=' . a:word
-  retu system(l:url)
+  let l:url = 'https://www.oxfordlearnersdictionaries.com/definition/english/' . a:word . '_1?q=' . a:word
+  let l:cmd = 'curl -L ' . shellescape(l:url)
+  retu system(l:cmd)
 endf
 
 fun! phonetics#core#GetWord()
@@ -30,4 +31,3 @@ fun! phonetics#core#ErrorMsg(message)
   echo a:message
   echohl None
 endf
-
