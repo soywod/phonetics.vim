@@ -9,13 +9,12 @@ function! phonetics#text#common#Echo(accent)
 endfunction
 
 function! phonetics#text#common#Scrap(regex, word)
-  let l:html = phonetics#core#GetHTML(a:word)
+  let html = phonetics#core#GetHTML(a:word)
 
   try
-    let [l:match, l:phonetics_raw; l:rest] = matchlist(l:html, a:regex)
-    return [l:phonetics_raw]
+    let [match, phonetics_raw; rest] = matchlist(html, a:regex)
+    return [phonetics_raw]
   catch
     return []
   endtry
 endfunction
-

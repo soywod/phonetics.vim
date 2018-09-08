@@ -1,4 +1,4 @@
-# Vim Phonetics
+# Phonetics.vim
 
 A Vim plugin for:
  - 📖 Checking phonetics
@@ -10,16 +10,17 @@ A Vim plugin for:
 
 ## Introduction
 
-Vim Phonetics is a vim plugin that gives you English phonetic transcriptions of focused words.
-You can choose between British English and American English.
+Vim Phonetics is a vim plugin that gives you English phonetic transcriptions of
+focused words.  You can choose between British English and American English.
 You can also listen to audio associated to transcriptions.
 
-The phonetics (transcription and audio) comes from [Oxford Learner's Dictionnaries](https://www.oxfordlearnersdictionaries.com/).
+The phonetics (transcription and audio) comes from [Oxford Learner's
+Dictionnaries](https://www.oxfordlearnersdictionaries.com/).
 
 ## Prerequisites
 
- - A network retriever ([curl](https://curl.haxx.se/))
- - A media player ([mpv](https://mpv.io/))
+ - [cURL](https://curl.haxx.se/) to retrieve audios and phonetics
+ - [mpv](https://mpv.io/) to play audios
 
 ## Installation
 

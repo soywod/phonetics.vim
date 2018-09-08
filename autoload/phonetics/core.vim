@@ -1,30 +1,32 @@
 function! phonetics#core#GetHTML(word)
-  let l:url = 'https://www.oxfordlearnersdictionaries.com/definition/english/' . a:word . '_1?q=' . a:word
-  let l:cmd = 'curl -L ' . shellescape(l:url)
-  retu system(l:cmd)
+  let url = 'https://www.oxfordlearnersdictionaries.com/definition/english/' . a:word . '_1?q=' . a:word
+  let cmd = 'curl -L ' . shellescape(url)
+
+  return system(cmd)
 endfunction
 
 function! phonetics#core#GetWord()
-  retu tolower(expand('<cword>'))
+  return tolower(expand('<cword>'))
 endfunction
 
 function! phonetics#core#GetAccent(accent)
   if a:accent == '' | return get(g:, 'phonetics_default_accent', 'british') | endif
   if a:accent != 'british' && a:accent != 'american' | throw 'invalid-accent' | endif
+
   return a:accent
 endfunction
 
 function! phonetics#core#Scrap(accent, type)
-  let l:accent = phonetics#core#GetAccent(a:accent)
-  let l:word = phonetics#core#GetWord()
-  execute 'let l:response = phonetics#' . a:type . '#' . l:accent . '#Scrap(l:word)'
+  let accent = phonetics#core#GetAccent(a:accent)
+  let word   = phonetics#core#GetWord()
+  execute 'let response = phonetics#' . a:type . '#' . accent . '#Scrap(word)'
 
-  if empty(l:response) | throw 'phonetics-not-found' | endif
+  if empty(response) | throw 'phonetics-not-found' | endif
 
-  let l:phonetics = substitute(l:response[0], '<\/\?span.\{-}>', '', 'g')
-  execute 'echom "[' . toupper(l:accent) . '] ' . l:word . ' = ' . l:phonetics . '"'
+  let phonetics = substitute(response[0], '<\/\?span.\{-}>', '', 'g')
+  execute 'echom "[' . toupper(accent) . '] ' . word . ' = ' . phonetics . '"'
 
-  return l:response
+  return response
 endfunction
 
 function! phonetics#core#ErrorMsg(message)
@@ -32,4 +34,3 @@ function! phonetics#core#ErrorMsg(message)
   echo a:message
   echohl None
 endfunction
-

@@ -1,7 +1,7 @@
 function! phonetics#audio#common#EchoAndPlay(accent)
   try
-    let [l:transcription, l:audio_url] = phonetics#core#Scrap(a:accent, 'audio')
-    call system('mpv ' . shellescape(l:audio_url))
+    let [transcription, audio_url] = phonetics#core#Scrap(a:accent, 'audio')
+    call system('mpv ' . shellescape(audio_url))
   catch 'phonetics-not-found'
     call phonetics#core#ErrorMsg('Phonetics not found.')
   catch 'invalid-accent'
@@ -10,13 +10,12 @@ function! phonetics#audio#common#EchoAndPlay(accent)
 endfunction
 
 function! phonetics#audio#common#Scrap(regex, word)
-  let l:html = phonetics#core#GetHTML(a:word)
+  let html = phonetics#core#GetHTML(a:word)
 
   try
-    let [l:match_all, l:phonetics_raw, l:audio_url; l:rest] = matchlist(l:html, a:regex)	
-    return [l:phonetics_raw, l:audio_url]
+    let [match_all, phonetics_raw, audio_url; rest] = matchlist(html, a:regex)	
+    return [phonetics_raw, audio_url]
   catch
     return []
   endtry
 endfunction
-
