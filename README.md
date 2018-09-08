@@ -5,7 +5,7 @@ A Vim plugin for:
  - 🎧 Listening to phonetics
 
 <p align="center">
-<img  width="615" src="https://user-images.githubusercontent.com/10437171/40181075-890f753e-59e8-11e8-801c-7f8d64514c91.gif"></img>
+<img width="607" src="https://user-images.githubusercontent.com/10437171/45259164-32160300-b3c6-11e8-8cb2-48f448163391.gif"></img>
 </p>
 
 ## Introduction
