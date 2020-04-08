@@ -1,4 +1,4 @@
 function! phonetics#text#american#Scrap(word)
-  let regex = 'NAmE.\{-}separator">\/<\/span>\(.\{-}\)<span class="separator'
+  let regex = '<div class="phons_n_am".\{-}<span class="phon">\(/.\{-}/\)<\/span>'
   return phonetics#text#common#Scrap(regex, a:word)
 endfunction
